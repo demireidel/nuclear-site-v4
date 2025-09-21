@@ -1,0 +1,74 @@
+{
+  "name": "worldclass-webapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "World-class Next.js 15 + React 19 application with deterministic builds, security hardening, and elite UX.",
+  "type": "module",
+  "packageManager": "pnpm@9.15.5",
+  "engines": {
+    "node": ">=22.19.0",
+    "pnpm": "9.15.5"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "a11y": "vitest run -t a11y",
+    "sbom": "node ./scripts/sbom-note.mjs",
+    "postinstall": "node ./scripts/postinstall-note.mjs"
+  },
+  "dependencies": {
+    "next": "15.5.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next-intl": "4.3.9",
+    "clsx": "2.1.1",
+    "zod": "3.23.8",
+    "framer-motion": "12.23.15",
+    "@radix-ui/react-dialog": "1.1.15",
+    "@radix-ui/react-slot": "1.2.3"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "eslint": "9.11.0",
+    "@typescript-eslint/parser": "8.8.0",
+    "@typescript-eslint/eslint-plugin": "8.8.0",
+    "eslint-plugin-jsx-a11y": "6.9.0",
+    "prettier": "3.3.3",
+    "husky": "9.1.7",
+    "lint-staged": "15.2.8",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "lockfile-lint": "4.14.1",
+    "tailwindcss": "3.4.17",
+    "@tailwindcss/forms": "0.5.10",
+    "@tailwindcss/typography": "0.5.16",
+    "postcss": "8.4.41",
+    "autoprefixer": "10.4.20",
+    "vitest": "3.2.4",
+    "@testing-library/react": "16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "vitest-axe": "0.1.0",
+    "axe-core": "4.10.1",
+    "@sentry/nextjs": "10.12.0",
+    "@types/node": "22.7.5",
+    "@vitejs/plugin-react": "4.3.4",
+    "@playwright/test": "1.55.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,md,mdx,css}": [
+      "prettier --write"
+    ],
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}
